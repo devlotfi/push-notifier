@@ -6,7 +6,7 @@ export default function App() {
     <div className="flex flex-1 flex-col">
       <Navbar></Navbar>
 
-      <div className="flex flex-1 flex-col items-center p-[1rem]">
+      <div className="flex flex-1 flex-col overflow-y-auto max-h-[100dvh-5rem-2rem] items-center p-[1rem]">
         <div className="flex flex-1 flex-col justify-center w-full max-w-screen-sm pb-[5rem]">
           <NotificationsSettings></NotificationsSettings>
         </div>
