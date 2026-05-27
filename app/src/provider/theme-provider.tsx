@@ -94,18 +94,10 @@ export function ThemeProvider({ children }: PropsWithChildren) {
     if (!metaTag) return;
     switch (appliedTheme) {
       case ThemeOptions.LIGHT:
-        if (isLarge) {
-          metaTag.setAttribute("content", "#cccccc");
-        } else {
-          metaTag.setAttribute("content", "#d4d4d4");
-        }
+        metaTag.setAttribute("content", "#f3f3f3");
         break;
       case ThemeOptions.DARK:
-        if (isLarge) {
-          metaTag.setAttribute("content", "#23282b");
-        } else {
-          metaTag.setAttribute("content", "#282B32");
-        }
+        metaTag.setAttribute("content", "#242d3b");
         break;
     }
   }, [appliedTheme, isLarge]);

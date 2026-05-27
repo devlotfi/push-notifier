@@ -1,5 +1,5 @@
 import { Button, cn, Dropdown, Label } from "@heroui/react";
-import { Laptop, Moon, Sun } from "lucide-react";
+import { Download, Laptop, Moon, Sun } from "lucide-react";
 import LogoSVG from "./svg/LogoSVG";
 import { useContext } from "react";
 import { ThemeContext } from "../context/theme-context";
@@ -8,10 +8,12 @@ import { useTranslation } from "react-i18next";
 import ArSVG from "../assets/flags/ar.svg";
 import FrSVG from "../assets/flags/fr.svg";
 import EnSVG from "../assets/flags/en.svg";
+import { PWAContext } from "../context/pwa-context";
 
 export default function Navbar() {
   const { i18n } = useTranslation();
   const { themeOption, setTheme } = useContext(ThemeContext);
+  const { beforeInstallPromptEvent } = useContext(PWAContext);
 
   const switchTheme = () => {
     switch (themeOption) {
@@ -111,6 +113,17 @@ export default function Navbar() {
               <Laptop className="size-[1.4rem]"></Laptop>
             )}
           </Button>
+
+          {beforeInstallPromptEvent ? (
+            <Button
+              isIconOnly
+              variant="outline"
+              className="size-[2.5rem] text-foreground bg-background"
+              onPress={() => beforeInstallPromptEvent.prompt()}
+            >
+              <Download className="size-[1.4rem]"></Download>
+            </Button>
+          ) : null}
         </div>
       </div>
     </div>
